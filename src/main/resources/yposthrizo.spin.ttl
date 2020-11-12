@@ -1,0 +1,793 @@
+# baseURI: http://example.org/yposthrizo
+# imports: http://spinrdf.org/spl
+# prefix: yposthrizo
+
+@prefix : <http://example.org/yposthrizo#> .
+@prefix arg: <http://spinrdf.org/arg#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sp: <http://spinrdf.org/sp#> .
+@prefix spin: <http://spinrdf.org/spin#> .
+@prefix spl: <http://spinrdf.org/spl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ypo: <http://example.org/yposthrizo#> .
+@prefix yposthrizo: <http://example.org/yposthrizo#> .
+
+<http://example.org/yposthrizo>
+  a owl:Ontology ;
+  owl:imports <http://spinrdf.org/spl> ;
+  owl:versionInfo "Created with TopBraid Composer" ;
+.
+yposthrizo:AD
+  a owl:Class ;
+  rdfs:subClassOf yposthrizo:Diagnosis ;
+.
+yposthrizo:Activity
+  a owl:Class ;
+  rdfs:subClassOf yposthrizo:Event ;
+.
+yposthrizo:Age
+  a owl:Class ;
+  rdfs:subClassOf yposthrizo:Profile ;
+.
+yposthrizo:Alert
+  a owl:Class ;
+  rdfs:subClassOf yposthrizo:Output ;
+.
+yposthrizo:BAI
+  a owl:Class ;
+  rdfs:subClassOf yposthrizo:NeuropsychologicalTests ;
+.
+yposthrizo:BDI
+  a owl:Class ;
+  rdfs:subClassOf yposthrizo:NeuropsychologicalTests ;
+.
+yposthrizo:Calories
+  a owl:Class ;
+  rdfs:subClassOf owl:Thing ;
+.
+yposthrizo:Device
+  a owl:Class ;
+  rdfs:subClassOf owl:Thing ;
+.
+yposthrizo:Diagnosis
+  a owl:Class ;
+  rdfs:subClassOf yposthrizo:Profile ;
+.
+yposthrizo:Education
+  a owl:Class ;
+  rdfs:subClassOf yposthrizo:Profile ;
+.
+yposthrizo:Event
+  a owl:Class ;
+  rdfs:subClassOf owl:Thing ;
+.
+yposthrizo:FRSSD
+  a owl:Class ;
+  rdfs:subClassOf yposthrizo:NeuropsychologicalTests ;
+.
+yposthrizo:FUCAS
+  a owl:Class ;
+  rdfs:subClassOf yposthrizo:NeuropsychologicalTests ;
+.
+yposthrizo:FirstSymptom
+  a owl:Class ;
+  rdfs:subClassOf yposthrizo:Profile ;
+.
+yposthrizo:Game
+  a owl:Class ;
+  rdfs:subClassOf owl:Thing ;
+.
+yposthrizo:Gender
+  a owl:Class ;
+  rdfs:subClassOf yposthrizo:Profile ;
+.
+yposthrizo:HamiltonDepressionScale
+  a owl:Class ;
+  rdfs:subClassOf yposthrizo:NeuropsychologicalTests ;
+.
+yposthrizo:Healthy
+  a owl:Class ;
+  rdfs:subClassOf yposthrizo:Diagnosis ;
+.
+yposthrizo:HeartRate
+  a owl:Class ;
+  rdfs:subClassOf yposthrizo:Measurement ;
+.
+yposthrizo:HeartRate_1
+  a yposthrizo:HeartRate ;
+  yposthrizo:heartRateRefersToPerson yposthrizo:Person_1 ;
+  owl:ofr "\"S\"" ;
+  owl:outOfRange "\"1\"" ;
+  owl:outOfRange "\"2\"" ;
+.
+yposthrizo:HeartRate_2
+  a yposthrizo:HeartRate ;
+  yposthrizo:heartRateRefersToPerson yposthrizo:Person_2 ;
+  owl:outOfRange "\"s:\"" ;
+.
+yposthrizo:MCI
+  a owl:Class ;
+  rdfs:subClassOf yposthrizo:Diagnosis ;
+.
+yposthrizo:MMSE
+  a owl:Class ;
+  rdfs:subClassOf yposthrizo:NeuropsychologicalTests ;
+.
+yposthrizo:Measurement
+  a owl:Class ;
+  rdfs:subClassOf yposthrizo:Event ;
+.
+yposthrizo:Medication
+  a owl:Class ;
+  rdfs:subClassOf yposthrizo:Profile ;
+.
+yposthrizo:Message
+  a owl:Class ;
+  rdfs:subClassOf yposthrizo:Output ;
+.
+yposthrizo:MoCa
+  a owl:Class ;
+  rdfs:subClassOf yposthrizo:NeuropsychologicalTests ;
+.
+yposthrizo:Movement
+  a owl:Class ;
+  rdfs:subClassOf yposthrizo:Measurement ;
+.
+yposthrizo:Movement_1
+  a yposthrizo:Movement ;
+  yposthrizo:movementRefersToPerson yposthrizo:Person_2 ;
+  owl:minutes 100 ;
+.
+yposthrizo:Movement_2
+  a yposthrizo:Movement ;
+  yposthrizo:movementRefersToPerson yposthrizo:Person_1 ;
+  owl:minutes 100 ;
+  owl:refersToPerson yposthrizo:Person_1 ;
+.
+yposthrizo:Movement_3
+  a yposthrizo:Movement ;
+  yposthrizo:movementRefersToPerson yposthrizo:Person_1 ;
+  owl:minutes 200 ;
+  owl:refersToPerson yposthrizo:Person_1 ;
+.
+yposthrizo:NPI
+  a owl:Class ;
+  rdfs:subClassOf yposthrizo:NeuropsychologicalTests ;
+.
+yposthrizo:NeuropsychologicalTests
+  a owl:Class ;
+  rdfs:subClassOf owl:Thing ;
+.
+yposthrizo:OtherMedicalProblems
+  a owl:Class ;
+  rdfs:subClassOf yposthrizo:Profile ;
+.
+yposthrizo:Output
+  a owl:Class ;
+  rdfs:subClassOf owl:Thing ;
+.
+yposthrizo:PSS
+  a owl:Class ;
+  rdfs:subClassOf yposthrizo:NeuropsychologicalTests ;
+.
+yposthrizo:Person
+  a owl:Class ;
+  rdfs:subClassOf owl:Thing ;
+.
+yposthrizo:Person_1
+  a yposthrizo:Person ;
+  owl:hasSleepProblem "insomnia" ;
+  owl:hasSleepProblem "nightmare" ;
+  owl:hasSleepProblem "sleep" ;
+.
+yposthrizo:Person_2
+  a yposthrizo:Person ;
+  owl:hasSleepProblem "test" ;
+  owl:hasSleepProblem "test]" ;
+.
+yposthrizo:Phone
+  a owl:Class ;
+  rdfs:subClassOf owl:Thing ;
+.
+yposthrizo:Prescription
+  a owl:Class ;
+  rdfs:subClassOf owl:Thing ;
+.
+yposthrizo:Profile
+  a owl:Class ;
+  rdfs:subClassOf owl:Thing ;
+.
+yposthrizo:RAVLT
+  a owl:Class ;
+  rdfs:subClassOf yposthrizo:NeuropsychologicalTests ;
+.
+yposthrizo:ROCFT
+  a owl:Class ;
+  rdfs:subClassOf yposthrizo:NeuropsychologicalTests ;
+.
+yposthrizo:SCD
+  a owl:Class ;
+  rdfs:subClassOf yposthrizo:Diagnosis ;
+.
+yposthrizo:Sleep
+  a owl:Class ;
+  rdfs:subClassOf yposthrizo:Measurement ;
+.
+yposthrizo:Steps
+  a owl:Class ;
+  rdfs:subClassOf owl:Thing ;
+.
+yposthrizo:TEA
+  a owl:Class ;
+  rdfs:subClassOf yposthrizo:NeuropsychologicalTests ;
+.
+yposthrizo:TriggeringFactor
+  a owl:Class ;
+  rdfs:subClassOf yposthrizo:Profile ;
+.
+yposthrizo:UDS
+  a owl:Class ;
+  rdfs:subClassOf yposthrizo:NeuropsychologicalTests ;
+.
+yposthrizo:Warning
+  a owl:Class ;
+  rdfs:subClassOf yposthrizo:Output ;
+.
+yposthrizo:Warning_1
+  a yposthrizo:Warning ;
+.
+yposthrizo:activityRefersToPerson
+  a owl:ObjectProperty ;
+  rdfs:domain yposthrizo:Person ;
+  rdfs:range yposthrizo:Measurement ;
+  rdfs:subPropertyOf owl:refersToPerson ;
+.
+yposthrizo:heartRateRefersToPerson
+  a owl:ObjectProperty ;
+  rdfs:domain yposthrizo:HeartRate ;
+  rdfs:range yposthrizo:Person ;
+  rdfs:subPropertyOf yposthrizo:measurementRefersToPerson ;
+.
+yposthrizo:measurementRefersToPerson
+  a owl:ObjectProperty ;
+  rdfs:domain yposthrizo:Measurement ;
+  rdfs:range yposthrizo:Person ;
+  rdfs:subPropertyOf owl:refersToPerson ;
+.
+yposthrizo:mild
+  a owl:DatatypeProperty ;
+  rdfs:subPropertyOf owl:adDiagnosis ;
+.
+yposthrizo:minutesAfterWakeUp
+  a owl:DatatypeProperty ;
+  rdfs:subPropertyOf owl:sleepMeasurements ;
+.
+yposthrizo:moderate
+  a owl:DatatypeProperty ;
+  rdfs:subPropertyOf owl:adDiagnosis ;
+.
+yposthrizo:movementRefersToPerson
+  a owl:ObjectProperty ;
+  rdfs:subPropertyOf yposthrizo:measurementRefersToPerson ;
+.
+yposthrizo:severe
+  a owl:DatatypeProperty ;
+  rdfs:subPropertyOf owl:adDiagnosis ;
+.
+owl:PrescriptionWeekdays
+  a owl:DatatypeProperty ;
+  rdfs:subPropertyOf owl:topDataProperty ;
+.
+owl:WakeMinutes
+  a owl:DatatypeProperty ;
+  rdfs:subPropertyOf owl:sleepMeasurements ;
+.
+owl:activityCalories
+  a owl:DatatypeProperty ;
+  rdfs:subPropertyOf owl:movementMeasurements ;
+.
+owl:activityDetectedBy
+  a owl:ObjectProperty ;
+  rdfs:domain yposthrizo:Activity ;
+  rdfs:range yposthrizo:Device ;
+  rdfs:subPropertyOf owl:detectedBy ;
+.
+owl:adDiagnosis
+  a owl:DatatypeProperty ;
+  rdfs:subPropertyOf owl:topDataProperty ;
+.
+owl:age
+  a owl:DatatypeProperty ;
+  rdfs:domain yposthrizo:Person ;
+  rdfs:range xsd:integer ;
+  rdfs:subPropertyOf owl:topDataProperty ;
+.
+owl:amnesticMultipleDomains
+  a owl:DatatypeProperty ;
+  rdfs:subPropertyOf owl:mciDiagnosis ;
+.
+owl:amnesticSingle
+  a owl:DatatypeProperty ;
+  rdfs:subPropertyOf owl:mciDiagnosis ;
+.
+owl:anesthesia
+  a owl:DatatypeProperty ;
+  rdfs:subPropertyOf owl:triggeringFactorType ;
+.
+owl:anxiety
+  a owl:DatatypeProperty ;
+  rdfs:subPropertyOf owl:firstSymptomType ;
+.
+owl:anxiety_
+  a owl:DatatypeProperty ;
+  rdfs:subPropertyOf owl:otherMedicalProblems ;
+.
+owl:arrythmia
+  a owl:DatatypeProperty ;
+  rdfs:subPropertyOf owl:otherMedicalProblems ;
+.
+owl:asleepCount
+  a owl:DatatypeProperty ;
+  rdfs:subPropertyOf owl:sleepMeasurements ;
+.
+owl:asleepMinutes
+  a owl:DatatypeProperty ;
+  rdfs:range xsd:integer ;
+  rdfs:subPropertyOf owl:sleepMeasurements ;
+.
+owl:asleepStageDuration
+  a owl:DatatypeProperty ;
+  rdfs:subPropertyOf owl:sleepMeasurements ;
+.
+owl:awakeCOunt
+  a owl:DatatypeProperty ;
+  rdfs:subPropertyOf owl:sleepMeasurements ;
+.
+owl:awakeMinutes
+  a owl:DatatypeProperty ;
+  rdfs:subPropertyOf owl:sleepMeasurements ;
+.
+owl:awakeStageDuration
+  a owl:DatatypeProperty ;
+  rdfs:subPropertyOf owl:sleepMeasurements ;
+.
+owl:behavioralDisturbances
+  a owl:DatatypeProperty ;
+  rdfs:subPropertyOf owl:firstSymptomType ;
+.
+owl:cancer
+  a owl:DatatypeProperty ;
+  rdfs:subPropertyOf owl:otherMedicalProblems ;
+.
+owl:cardio
+  a owl:DatatypeProperty ;
+  rdfs:subPropertyOf owl:heartRateMeasurements ;
+.
+owl:cardiovascular
+  a owl:DatatypeProperty ;
+  rdfs:subPropertyOf owl:otherMedicalProblems ;
+.
+owl:cholesterol
+  a owl:DatatypeProperty ;
+  rdfs:subPropertyOf owl:otherMedicalProblems ;
+.
+owl:chronic-Stress
+  a owl:DatatypeProperty ;
+  rdfs:subPropertyOf owl:triggeringFactorType ;
+.
+owl:deathOfRelative
+  a owl:DatatypeProperty ;
+  rdfs:subPropertyOf owl:triggeringFactorType ;
+.
+owl:deepCount
+  a owl:DatatypeProperty ;
+  rdfs:subPropertyOf owl:sleepMeasurements ;
+.
+owl:deepMinutes
+  a owl:DatatypeProperty ;
+  rdfs:subPropertyOf owl:sleepMeasurements ;
+.
+owl:deepStageDuration
+  a owl:DatatypeProperty ;
+  rdfs:subPropertyOf owl:sleepMeasurements ;
+.
+owl:depression
+  a owl:DatatypeProperty ;
+  rdfs:subPropertyOf owl:firstSymptomType ;
+.
+owl:depression_
+  a owl:DatatypeProperty ;
+  rdfs:subPropertyOf owl:otherMedicalProblems ;
+.
+owl:detectedBy
+  a owl:ObjectProperty ;
+  rdfs:domain yposthrizo:Event ;
+  rdfs:range yposthrizo:Device ;
+  rdfs:subPropertyOf owl:topObjectProperty ;
+.
+owl:detects
+  a owl:ObjectProperty ;
+  rdfs:domain yposthrizo:Device ;
+  rdfs:range yposthrizo:Event ;
+  rdfs:subPropertyOf owl:topObjectProperty ;
+.
+owl:detectsActivity
+  a owl:ObjectProperty ;
+  rdfs:domain yposthrizo:Device ;
+  rdfs:range yposthrizo:Activity ;
+  rdfs:subPropertyOf owl:detects ;
+.
+owl:detectsMeasurement
+  a owl:ObjectProperty ;
+  rdfs:domain yposthrizo:Device ;
+  rdfs:range yposthrizo:Measurement ;
+  rdfs:subPropertyOf owl:detects ;
+.
+owl:deviceID
+  a owl:DatatypeProperty ;
+  rdfs:subPropertyOf owl:topDataProperty ;
+.
+owl:deviceStatus
+  a owl:DatatypeProperty ;
+  rdfs:domain yposthrizo:Device ;
+  rdfs:range xsd:string ;
+  rdfs:subPropertyOf owl:topDataProperty ;
+.
+owl:diabetesMelitus
+  a owl:DatatypeProperty ;
+  rdfs:subPropertyOf owl:otherMedicalProblems ;
+.
+owl:disorientation
+  a owl:DatatypeProperty ;
+  rdfs:subPropertyOf owl:firstSymptomType ;
+.
+owl:distance
+  a owl:DatatypeProperty ;
+  rdfs:subPropertyOf owl:movementMeasurements ;
+.
+owl:duration
+  a owl:DatatypeProperty ;
+  rdfs:range xsd:integer ;
+  rdfs:subPropertyOf owl:sleepMeasurements ;
+.
+owl:educationType
+  a owl:DatatypeProperty ;
+  rdfs:subPropertyOf owl:topDataProperty ;
+.
+owl:efficiency
+  a owl:DatatypeProperty ;
+  rdfs:subPropertyOf owl:sleepMeasurements ;
+.
+owl:elevation
+  a owl:DatatypeProperty ;
+  rdfs:subPropertyOf owl:movementMeasurements ;
+.
+owl:eventDuration
+  a owl:DatatypeProperty ;
+  rdfs:subPropertyOf owl:topDataProperty ;
+.
+owl:eventEndTime
+  a owl:DatatypeProperty ;
+  rdfs:subPropertyOf owl:topDataProperty ;
+.
+owl:eventStartTime
+  a owl:DatatypeProperty ;
+  rdfs:subPropertyOf owl:topDataProperty ;
+.
+owl:fatburn
+  a owl:DatatypeProperty ;
+  rdfs:subPropertyOf owl:heartRateMeasurements ;
+.
+owl:firstSymptomType
+  a owl:DatatypeProperty ;
+  rdfs:subPropertyOf owl:topDataProperty ;
+.
+owl:floors
+  a owl:DatatypeProperty ;
+  rdfs:subPropertyOf owl:movementMeasurements ;
+.
+owl:gameName
+  a owl:DatatypeProperty ;
+  rdfs:subPropertyOf owl:topDataProperty ;
+.
+owl:gamePlayTime
+  a owl:DatatypeProperty ;
+  rdfs:subPropertyOf owl:topDataProperty ;
+.
+owl:gameStartTime
+  a owl:DatatypeProperty ;
+  rdfs:subPropertyOf owl:topDataProperty ;
+.
+owl:gameToken
+  a owl:DatatypeProperty ;
+  rdfs:subPropertyOf owl:topDataProperty ;
+.
+owl:gender
+  a owl:DatatypeProperty ;
+  rdfs:subPropertyOf owl:topDataProperty ;
+.
+owl:hasActivity
+  a owl:ObjectProperty ;
+  rdfs:domain yposthrizo:Person ;
+  rdfs:range yposthrizo:Activity ;
+  rdfs:subPropertyOf owl:hasEvent ;
+.
+owl:hasDescr
+  a owl:DatatypeProperty ;
+  rdfs:domain yposthrizo:Warning ;
+  rdfs:range xsd:string ;
+  rdfs:subPropertyOf owl:topDataProperty ;
+.
+owl:hasEvent
+  a owl:ObjectProperty ;
+  rdfs:domain yposthrizo:Person ;
+  rdfs:range yposthrizo:Event ;
+  rdfs:subPropertyOf owl:topObjectProperty ;
+.
+owl:hasHeartRateProblem
+  a owl:DatatypeProperty ;
+  rdfs:domain yposthrizo:Person ;
+  rdfs:range xsd:string ;
+  rdfs:subPropertyOf owl:topDataProperty ;
+.
+owl:hasMeasurement
+  a owl:ObjectProperty ;
+  rdfs:domain yposthrizo:Person ;
+  rdfs:range yposthrizo:Measurement ;
+  rdfs:subPropertyOf owl:hasEvent ;
+.
+owl:hasPrescription
+  a owl:ObjectProperty ;
+  rdfs:domain yposthrizo:Person ;
+  rdfs:range yposthrizo:Prescription ;
+  rdfs:subPropertyOf owl:topObjectProperty ;
+.
+owl:hasProfile
+  a owl:ObjectProperty ;
+  rdfs:domain yposthrizo:Person ;
+  rdfs:range yposthrizo:Profile ;
+  rdfs:subPropertyOf owl:topObjectProperty ;
+.
+owl:hasSleepPr
+  a owl:ObjectProperty ;
+  rdfs:domain yposthrizo:Person ;
+  rdfs:subPropertyOf owl:topObjectProperty ;
+.
+owl:hasSleepProblem
+  a owl:DatatypeProperty ;
+  rdfs:domain yposthrizo:Person ;
+  rdfs:range xsd:string ;
+  rdfs:subPropertyOf owl:topDataProperty ;
+.
+owl:heartRate
+  a owl:DatatypeProperty ;
+  rdfs:subPropertyOf owl:heartRateMeasurements ;
+.
+owl:heartRateMeasurements
+  a owl:DatatypeProperty ;
+  rdfs:domain yposthrizo:HeartRate ;
+  rdfs:subPropertyOf owl:topDataProperty ;
+.
+owl:highBloodPressure
+  a owl:DatatypeProperty ;
+  rdfs:subPropertyOf owl:otherMedicalProblems ;
+.
+owl:lackOfSleep
+  a owl:DatatypeProperty ;
+  rdfs:subPropertyOf owl:firstSymptomType ;
+.
+owl:lifeThreat
+  a owl:DatatypeProperty ;
+  rdfs:subPropertyOf owl:triggeringFactorType ;
+.
+owl:lightCount
+  a owl:DatatypeProperty ;
+  rdfs:subPropertyOf owl:sleepMeasurements ;
+.
+owl:lightMinutes
+  a owl:DatatypeProperty ;
+  rdfs:subPropertyOf owl:sleepMeasurements ;
+.
+owl:lightStageDuration
+  a owl:DatatypeProperty ;
+  rdfs:subPropertyOf owl:sleepMeasurements ;
+.
+owl:mciDiagnosis
+  a owl:DatatypeProperty ;
+  rdfs:subPropertyOf owl:topDataProperty ;
+.
+owl:measurementDetectedBy
+  a owl:ObjectProperty ;
+  rdfs:domain yposthrizo:Measurement ;
+  rdfs:range yposthrizo:Device ;
+  rdfs:subPropertyOf owl:detectedBy ;
+.
+owl:memory
+  a owl:DatatypeProperty ;
+  rdfs:subPropertyOf owl:firstSymptomType ;
+.
+owl:minutes
+  a owl:DatatypeProperty ;
+  rdfs:domain yposthrizo:Movement ;
+  rdfs:range xsd:integer ;
+  rdfs:subPropertyOf owl:movementMeasurements ;
+.
+owl:minutesAsleep
+  a owl:DatatypeProperty ;
+  rdfs:subPropertyOf owl:sleepMeasurements ;
+.
+owl:minutesAwake
+  a owl:DatatypeProperty ;
+  rdfs:subPropertyOf owl:sleepMeasurements ;
+.
+owl:minutesToFallAsleep
+  a owl:DatatypeProperty ;
+  rdfs:subPropertyOf owl:sleepMeasurements ;
+.
+owl:movementMeasurements
+  a owl:DatatypeProperty ;
+  rdfs:subPropertyOf owl:topDataProperty ;
+.
+owl:myasthenia
+  a owl:DatatypeProperty ;
+  rdfs:subPropertyOf owl:otherMedicalProblems ;
+.
+owl:neurologicalProblems
+  a owl:DatatypeProperty ;
+  rdfs:subPropertyOf owl:otherMedicalProblems ;
+.
+owl:nonAmnesticMultipleDomains
+  a owl:DatatypeProperty ;
+  rdfs:subPropertyOf owl:mciDiagnosis ;
+.
+owl:nonAmnesticSIngle
+  a owl:DatatypeProperty ;
+  rdfs:subPropertyOf owl:mciDiagnosis ;
+.
+owl:numberOfSurgeriesWithAnesthesia
+  a owl:DatatypeProperty ;
+  rdfs:subPropertyOf owl:otherMedicalProblems ;
+.
+owl:ofr
+  a owl:DatatypeProperty ;
+  rdfs:domain yposthrizo:HeartRate ;
+  rdfs:range xsd:string ;
+  rdfs:subPropertyOf owl:topDataProperty ;
+.
+owl:otherMedicalProblems
+  a owl:DatatypeProperty ;
+  rdfs:subPropertyOf owl:topDataProperty ;
+.
+owl:otherPsychiatricCondition
+  a owl:DatatypeProperty ;
+  rdfs:subPropertyOf owl:otherMedicalProblems ;
+.
+owl:outOfRange
+  a owl:DatatypeProperty ;
+  rdfs:domain yposthrizo:HeartRate ;
+  rdfs:range xsd:string ;
+  rdfs:subPropertyOf owl:heartRateMeasurements ;
+.
+owl:ownedBy
+  a owl:ObjectProperty ;
+  rdfs:domain yposthrizo:Device ;
+  rdfs:range yposthrizo:Person ;
+  rdfs:subPropertyOf owl:topObjectProperty ;
+.
+owl:peak
+  a owl:DatatypeProperty ;
+  rdfs:subPropertyOf owl:heartRateMeasurements ;
+.
+owl:personID
+  a owl:DatatypeProperty ;
+  rdfs:subPropertyOf owl:topDataProperty ;
+.
+owl:phoneTimeStamp
+  a owl:DatatypeProperty ;
+  rdfs:subPropertyOf owl:topDataProperty ;
+.
+owl:phoneToken
+  a owl:DatatypeProperty ;
+  rdfs:subPropertyOf owl:topDataProperty ;
+.
+owl:phoneType
+  a owl:DatatypeProperty ;
+  rdfs:subPropertyOf owl:topDataProperty ;
+.
+owl:playedGame
+  a owl:ObjectProperty ;
+  rdfs:domain yposthrizo:Person ;
+  rdfs:range yposthrizo:Game ;
+  rdfs:subPropertyOf owl:topObjectProperty ;
+.
+owl:prescriptionDescr
+  a owl:DatatypeProperty ;
+  rdfs:subPropertyOf owl:topDataProperty ;
+.
+owl:prescriptionIntervals
+  a owl:DatatypeProperty ;
+  rdfs:subPropertyOf owl:topDataProperty ;
+.
+owl:prescriptionName
+  a owl:DatatypeProperty ;
+  rdfs:subPropertyOf owl:topDataProperty ;
+.
+owl:previousMedicalCondition
+  a owl:DatatypeProperty ;
+  rdfs:subPropertyOf owl:triggeringFactorType ;
+.
+owl:receivesWarning
+  a owl:ObjectProperty ;
+  rdfs:domain yposthrizo:Person ;
+  rdfs:range yposthrizo:Warning ;
+  rdfs:subPropertyOf owl:topObjectProperty ;
+.
+owl:refersToPerson
+  a owl:ObjectProperty ;
+  rdfs:domain yposthrizo:Event ;
+  rdfs:range yposthrizo:Person ;
+  rdfs:subPropertyOf owl:topObjectProperty ;
+.
+owl:remCount
+  a owl:DatatypeProperty ;
+  rdfs:subPropertyOf owl:sleepMeasurements ;
+.
+owl:remMinutes
+  a owl:DatatypeProperty ;
+  rdfs:subPropertyOf owl:sleepMeasurements ;
+.
+owl:restingHeartRate
+  a owl:DatatypeProperty ;
+  rdfs:subPropertyOf owl:heartRateMeasurements ;
+.
+owl:restlessStageDuration
+  a owl:DatatypeProperty ;
+  rdfs:subPropertyOf owl:sleepMeasurements ;
+.
+owl:sleepDuration
+  a owl:DatatypeProperty ;
+  rdfs:subPropertyOf owl:sleepMeasurements ;
+.
+owl:sleepMeasurements
+  a owl:DatatypeProperty ;
+  rdfs:domain yposthrizo:Sleep ;
+  rdfs:subPropertyOf owl:topDataProperty ;
+.
+owl:steps
+  a owl:DatatypeProperty ;
+  rdfs:subPropertyOf owl:movementMeasurements ;
+.
+owl:stroke
+  a owl:DatatypeProperty ;
+  rdfs:subPropertyOf owl:otherMedicalProblems ;
+.
+owl:timeInBed
+  a owl:DatatypeProperty ;
+  rdfs:subPropertyOf owl:sleepMeasurements ;
+.
+owl:traumaticBrainIngury
+  a owl:DatatypeProperty ;
+  rdfs:subPropertyOf owl:otherMedicalProblems ;
+.
+owl:triggeringFactorType
+  a owl:DatatypeProperty ;
+  rdfs:subPropertyOf owl:topDataProperty ;
+.
+owl:unemployment
+  a owl:DatatypeProperty ;
+  rdfs:subPropertyOf owl:triggeringFactorType ;
+.
+owl:wakeCount
+  a owl:DatatypeProperty ;
+  rdfs:subPropertyOf owl:sleepMeasurements ;
+.
+owl:wakeMinutes
+  a owl:DatatypeProperty ;
+  rdfs:subPropertyOf owl:sleepMeasurements ;
+.
+owl:wakeStageDuration
+  a owl:DatatypeProperty ;
+  rdfs:subPropertyOf owl:sleepMeasurements ;
+.
