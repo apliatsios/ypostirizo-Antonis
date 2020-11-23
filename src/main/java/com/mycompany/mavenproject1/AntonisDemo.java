@@ -99,7 +99,7 @@ TupleQuery query = getRepositoryConnection().prepareTupleQuery(queryString);
 			
 			try (TupleQueryResult result = query.evaluate()) {
 				
-                              //  System.out.println("hello");
+                                System.out.println("hello");
 				while (result.hasNext()) {
 					BindingSet solution = result.next();
 					// ... and print out the value of the variable binding for ?s and ?n
