@@ -132,42 +132,41 @@
     <rdfs:subClassOf rdf:resource="#NeuropsychologicalTests"/>
   </owl:Class>
   <owl:ObjectProperty rdf:ID="ownedBy">
+    <rdfs:subPropertyOf>
+      <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#topObjectProperty">
+        <rdfs:domain rdf:resource="#Device"/>
+        <rdfs:range rdf:resource="#Person"/>
+      </rdf:Description>
+    </rdfs:subPropertyOf>
     <owl:inverseOf>
       <owl:ObjectProperty rdf:ID="ownsDevice"/>
     </owl:inverseOf>
-    <rdfs:subPropertyOf>
-      <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#topObjectProperty">
-        <rdfs:range rdf:resource="#Person"/>
-        <rdfs:domain rdf:resource="#Device"/>
-      </rdf:Description>
-    </rdfs:subPropertyOf>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:about="http://www.w3.org/2002/07/owl#hasSleepProblem">
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-    <rdfs:domain rdf:resource="#Patient"/>
     <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    <rdfs:domain rdf:resource="#Person"/>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:about="http://www.w3.org/2002/07/owl#sendAlert">
-    <rdfs:range rdf:resource="#Alert"/>
-    <rdfs:domain rdf:resource="#Device"/>
     <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    <rdfs:domain rdf:resource="#Device"/>
+    <rdfs:range rdf:resource="#Alert"/>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:ID="measurementRefersToPerson">
-    <rdfs:range rdf:resource="#Person"/>
-    <rdfs:domain rdf:resource="#Measurement"/>
     <rdfs:subPropertyOf>
       <owl:ObjectProperty rdf:ID="refersToPerson"/>
     </rdfs:subPropertyOf>
+    <rdfs:domain rdf:resource="#Measurement"/>
+    <rdfs:range rdf:resource="#Person"/>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:about="#refersToPerson">
-    <rdfs:range rdf:resource="#Person"/>
-    <rdfs:domain rdf:resource="#Event"/>
     <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    <rdfs:domain rdf:resource="#Event"/>
+    <rdfs:range rdf:resource="#Person"/>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:ID="hasProfile">
-    <rdfs:range rdf:resource="#Profile"/>
-    <rdfs:domain rdf:resource="#Patient"/>
     <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    <rdfs:domain rdf:resource="#Patient"/>
+    <rdfs:range rdf:resource="#Profile"/>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:ID="hasActivity">
     <rdfs:subPropertyOf>
@@ -175,27 +174,27 @@
     </rdfs:subPropertyOf>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:about="http://www.w3.org/2002/07/owl#hasTriggeryFact">
-    <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
-    <rdfs:domain rdf:resource="#Person"/>
     <rdfs:range rdf:resource="#TriggeringFactor"/>
+    <rdfs:domain rdf:resource="#Person"/>
+    <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:ID="detectsActivity">
-    <rdfs:range rdf:resource="#Activity"/>
-    <rdfs:domain rdf:resource="#Device"/>
     <rdfs:subPropertyOf>
       <owl:ObjectProperty rdf:ID="detects"/>
     </rdfs:subPropertyOf>
+    <rdfs:domain rdf:resource="#Device"/>
+    <rdfs:range rdf:resource="#Activity"/>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:ID="activityDetectedBy">
-    <owl:inverseOf rdf:resource="#detectsActivity"/>
     <rdfs:subPropertyOf>
       <owl:ObjectProperty rdf:ID="detectedBy"/>
     </rdfs:subPropertyOf>
+    <owl:inverseOf rdf:resource="#detectsActivity"/>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:about="#hasEvent">
-    <rdfs:domain rdf:resource="#Device"/>
-    <owl:inverseOf rdf:resource="#refersToPerson"/>
     <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    <owl:inverseOf rdf:resource="#refersToPerson"/>
+    <rdfs:domain rdf:resource="#Device"/>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:ID="measurementDetectedBy">
     <rdfs:subPropertyOf>
@@ -203,54 +202,54 @@
     </rdfs:subPropertyOf>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:about="http://www.w3.org/2002/07/owl#receivesWarning">
-    <rdfs:range rdf:resource="#Warning"/>
-    <rdfs:domain rdf:resource="#Person"/>
     <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    <rdfs:domain rdf:resource="#Person"/>
+    <rdfs:range rdf:resource="#Warning"/>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:ID="detectsMeasurement">
-    <rdfs:range rdf:resource="#Measurement"/>
-    <rdfs:domain rdf:resource="#Device"/>
-    <owl:inverseOf rdf:resource="#measurementDetectedBy"/>
     <rdfs:subPropertyOf>
       <owl:ObjectProperty rdf:about="#detects"/>
     </rdfs:subPropertyOf>
+    <owl:inverseOf rdf:resource="#measurementDetectedBy"/>
+    <rdfs:domain rdf:resource="#Device"/>
+    <rdfs:range rdf:resource="#Measurement"/>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:about="#detectedBy">
+    <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
     <owl:inverseOf>
       <owl:ObjectProperty rdf:about="#detects"/>
     </owl:inverseOf>
-    <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:about="#detects">
-    <rdfs:range rdf:resource="#Event"/>
-    <rdfs:domain rdf:resource="#Device"/>
     <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    <rdfs:domain rdf:resource="#Device"/>
+    <rdfs:range rdf:resource="#Event"/>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:ID="activityRefersToPerson">
-    <rdfs:range rdf:resource="#Person"/>
-    <rdfs:domain rdf:resource="#Activity"/>
-    <owl:inverseOf rdf:resource="#hasActivity"/>
     <rdfs:subPropertyOf rdf:resource="#refersToPerson"/>
+    <owl:inverseOf rdf:resource="#hasActivity"/>
+    <rdfs:domain rdf:resource="#Activity"/>
+    <rdfs:range rdf:resource="#Person"/>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:about="#ownsDevice">
-    <rdfs:range rdf:resource="#Device"/>
-    <rdfs:domain rdf:resource="#Person"/>
     <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    <rdfs:domain rdf:resource="#Person"/>
+    <rdfs:range rdf:resource="#Device"/>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:ID="movementsRefersToPerson">
-    <rdfs:range rdf:resource="#Person"/>
-    <rdfs:domain rdf:resource="#Movement"/>
-    <rdfs:subPropertyOf rdf:resource="#refersToPerson"/>
     <rdfs:label>Papadopoulos</rdfs:label>
+    <rdfs:subPropertyOf rdf:resource="#refersToPerson"/>
+    <rdfs:domain rdf:resource="#Movement"/>
+    <rdfs:range rdf:resource="#Person"/>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:ID="hasMeasurement">
-    <owl:inverseOf rdf:resource="#measurementRefersToPerson"/>
     <rdfs:subPropertyOf rdf:resource="#hasEvent"/>
+    <owl:inverseOf rdf:resource="#measurementRefersToPerson"/>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:about="http://www.w3.org/2002/07/owl#heartRateRefersToPerson">
-    <rdfs:range rdf:resource="#Person"/>
-    <rdfs:domain rdf:resource="#HeartRate"/>
     <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    <rdfs:domain rdf:resource="#HeartRate"/>
+    <rdfs:range rdf:resource="#Person"/>
   </owl:ObjectProperty>
   <owl:DatatypeProperty rdf:ID="cancer">
     <rdfs:subPropertyOf>
@@ -259,15 +258,15 @@
   </owl:DatatypeProperty>
   <owl:DatatypeProperty rdf:ID="depression">
     <rdfs:subPropertyOf>
-      <owl:DatatypeProperty rdf:about="#otherMedicalProblems"/>
+      <owl:DatatypeProperty rdf:ID="firstSymptomType"/>
     </rdfs:subPropertyOf>
     <rdfs:subPropertyOf>
-      <owl:DatatypeProperty rdf:ID="firstSymptomType"/>
+      <owl:DatatypeProperty rdf:about="#otherMedicalProblems"/>
     </rdfs:subPropertyOf>
   </owl:DatatypeProperty>
   <owl:DatatypeProperty rdf:about="#otherMedicalProblems">
-    <rdfs:domain rdf:resource="#OtherMedicalProblems"/>
     <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+    <rdfs:domain rdf:resource="#OtherMedicalProblems"/>
   </owl:DatatypeProperty>
   <owl:DatatypeProperty rdf:ID="deepMinutes">
     <rdfs:subPropertyOf>
@@ -275,12 +274,12 @@
     </rdfs:subPropertyOf>
   </owl:DatatypeProperty>
   <owl:DatatypeProperty rdf:ID="movementMeasurements">
-    <rdfs:domain rdf:resource="#Movement"/>
     <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+    <rdfs:domain rdf:resource="#Movement"/>
   </owl:DatatypeProperty>
   <owl:DatatypeProperty rdf:ID="adDiagnosis">
-    <rdfs:domain rdf:resource="#AD"/>
     <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+    <rdfs:domain rdf:resource="#AD"/>
   </owl:DatatypeProperty>
   <owl:DatatypeProperty rdf:ID="deepStageDuration">
     <rdfs:subPropertyOf>
@@ -288,27 +287,27 @@
     </rdfs:subPropertyOf>
   </owl:DatatypeProperty>
   <owl:DatatypeProperty rdf:ID="secondary">
-    <rdfs:domain rdf:resource="#Education"/>
     <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+    <rdfs:domain rdf:resource="#Education"/>
   </owl:DatatypeProperty>
   <owl:DatatypeProperty rdf:ID="fatBurn">
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
-    <rdfs:domain rdf:resource="#HeartRate"/>
     <rdfs:subPropertyOf>
       <owl:DatatypeProperty rdf:ID="heartRateMeasurements"/>
     </rdfs:subPropertyOf>
+    <rdfs:domain rdf:resource="#HeartRate"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
   </owl:DatatypeProperty>
   <owl:DatatypeProperty rdf:ID="peak">
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
-    <rdfs:domain rdf:resource="#HeartRate"/>
     <rdfs:subPropertyOf>
       <owl:DatatypeProperty rdf:about="#heartRateMeasurements"/>
     </rdfs:subPropertyOf>
+    <rdfs:domain rdf:resource="#HeartRate"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
   </owl:DatatypeProperty>
   <owl:DatatypeProperty rdf:about="http://www.w3.org/2002/07/owl#deviceStatus">
-    <rdfs:domain rdf:resource="#Device"/>
-    <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+    <rdfs:domain rdf:resource="#Device"/>
   </owl:DatatypeProperty>
   <owl:DatatypeProperty rdf:ID="unemployment">
     <rdfs:subPropertyOf>
@@ -326,14 +325,14 @@
     </rdfs:subPropertyOf>
   </owl:DatatypeProperty>
   <owl:DatatypeProperty rdf:ID="activityCalories">
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
-    <rdfs:domain rdf:resource="#Movement"/>
     <rdfs:subPropertyOf rdf:resource="#movementMeasurements"/>
+    <rdfs:domain rdf:resource="#Movement"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
   </owl:DatatypeProperty>
   <owl:DatatypeProperty rdf:about="http://www.w3.org/2002/07/owl#hasProblem">
-    <rdfs:domain rdf:resource="#Patient"/>
-    <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+    <rdfs:domain rdf:resource="#Patient"/>
   </owl:DatatypeProperty>
   <owl:DatatypeProperty rdf:ID="lightMinutes">
     <rdfs:subPropertyOf>
@@ -341,13 +340,13 @@
     </rdfs:subPropertyOf>
   </owl:DatatypeProperty>
   <owl:DatatypeProperty rdf:ID="personID">
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-    <rdfs:domain rdf:resource="#Person"/>
     <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+    <rdfs:domain rdf:resource="#Person"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
   </owl:DatatypeProperty>
   <owl:DatatypeProperty rdf:ID="mciDiagnosis">
-    <rdfs:domain rdf:resource="#MCI"/>
     <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+    <rdfs:domain rdf:resource="#MCI"/>
   </owl:DatatypeProperty>
   <owl:DatatypeProperty rdf:ID="lackOfSleep">
     <rdfs:subPropertyOf>
@@ -361,9 +360,9 @@
     <rdfs:subPropertyOf rdf:resource="#adDiagnosis"/>
   </owl:DatatypeProperty>
   <owl:DatatypeProperty rdf:ID="eventDuration">
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
-    <rdfs:domain rdf:resource="#Event"/>
     <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+    <rdfs:domain rdf:resource="#Event"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
   </owl:DatatypeProperty>
   <owl:DatatypeProperty rdf:ID="restlessStageDuration">
     <rdfs:subPropertyOf>
@@ -382,15 +381,15 @@
     </rdfs:subPropertyOf>
   </owl:DatatypeProperty>
   <owl:DatatypeProperty rdf:ID="tertiary">
-    <rdfs:domain rdf:resource="#Education"/>
     <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+    <rdfs:domain rdf:resource="#Education"/>
   </owl:DatatypeProperty>
   <owl:DatatypeProperty rdf:ID="asleepMinutes">
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
-    <rdfs:domain rdf:resource="#Sleep"/>
     <rdfs:subPropertyOf>
       <owl:DatatypeProperty rdf:about="#sleepMeasurements"/>
     </rdfs:subPropertyOf>
+    <rdfs:domain rdf:resource="#Sleep"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
   </owl:DatatypeProperty>
   <owl:DatatypeProperty rdf:ID="mild">
     <rdfs:subPropertyOf rdf:resource="#adDiagnosis"/>
@@ -414,10 +413,10 @@
     <rdfs:subPropertyOf rdf:resource="#otherMedicalProblems"/>
   </owl:DatatypeProperty>
   <owl:DatatypeProperty rdf:ID="awakeCount">
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
     <rdfs:subPropertyOf>
       <owl:DatatypeProperty rdf:about="#sleepMeasurements"/>
     </rdfs:subPropertyOf>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
   </owl:DatatypeProperty>
   <owl:DatatypeProperty rdf:ID="lackOfExercise">
     <rdfs:subPropertyOf>
@@ -425,11 +424,11 @@
     </rdfs:subPropertyOf>
   </owl:DatatypeProperty>
   <owl:DatatypeProperty rdf:ID="heartRate">
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
-    <rdfs:domain rdf:resource="#HeartRate"/>
     <rdfs:subPropertyOf>
       <owl:DatatypeProperty rdf:about="#heartRateMeasurements"/>
     </rdfs:subPropertyOf>
+    <rdfs:domain rdf:resource="#HeartRate"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
   </owl:DatatypeProperty>
   <owl:DatatypeProperty rdf:ID="wakeCount">
     <rdfs:subPropertyOf>
@@ -447,23 +446,23 @@
     </rdfs:subPropertyOf>
   </owl:DatatypeProperty>
   <owl:DatatypeProperty rdf:ID="cardio">
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
-    <rdfs:domain rdf:resource="#HeartRate"/>
     <rdfs:subPropertyOf>
       <owl:DatatypeProperty rdf:about="#heartRateMeasurements"/>
     </rdfs:subPropertyOf>
+    <rdfs:domain rdf:resource="#HeartRate"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
   </owl:DatatypeProperty>
   <owl:DatatypeProperty rdf:ID="eventStartTime">
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTimeStamp"/>
-    <rdfs:domain rdf:resource="#Event"/>
     <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+    <rdfs:domain rdf:resource="#Event"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTimeStamp"/>
   </owl:DatatypeProperty>
   <owl:DatatypeProperty rdf:ID="asleepCount">
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
-    <rdfs:domain rdf:resource="#Sleep"/>
     <rdfs:subPropertyOf>
       <owl:DatatypeProperty rdf:about="#sleepMeasurements"/>
     </rdfs:subPropertyOf>
+    <rdfs:domain rdf:resource="#Sleep"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
   </owl:DatatypeProperty>
   <owl:DatatypeProperty rdf:ID="deathOfRelative">
     <rdfs:subPropertyOf>
@@ -481,9 +480,9 @@
     </rdfs:subPropertyOf>
   </owl:DatatypeProperty>
   <owl:DatatypeProperty rdf:ID="female">
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-    <rdfs:domain rdf:resource="#Gender"/>
     <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+    <rdfs:domain rdf:resource="#Gender"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
   </owl:DatatypeProperty>
   <owl:DatatypeProperty rdf:ID="stroke">
     <rdfs:subPropertyOf rdf:resource="#otherMedicalProblems"/>
@@ -492,8 +491,8 @@
     <rdfs:subPropertyOf rdf:resource="#mciDiagnosis"/>
   </owl:DatatypeProperty>
   <owl:DatatypeProperty rdf:about="#sleepMeasurements">
-    <rdfs:domain rdf:resource="#Sleep"/>
     <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+    <rdfs:domain rdf:resource="#Sleep"/>
   </owl:DatatypeProperty>
   <owl:DatatypeProperty rdf:ID="lightCount">
     <rdfs:subPropertyOf rdf:resource="#sleepMeasurements"/>
@@ -502,26 +501,26 @@
     <rdfs:subPropertyOf rdf:resource="#sleepMeasurements"/>
   </owl:DatatypeProperty>
   <owl:DatatypeProperty rdf:ID="primary">
-    <rdfs:domain rdf:resource="#Education"/>
     <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+    <rdfs:domain rdf:resource="#Education"/>
   </owl:DatatypeProperty>
   <owl:DatatypeProperty rdf:ID="male">
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-    <rdfs:domain rdf:resource="#Gender"/>
     <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+    <rdfs:domain rdf:resource="#Gender"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
   </owl:DatatypeProperty>
   <owl:DatatypeProperty rdf:ID="highBloodPressure">
     <rdfs:subPropertyOf rdf:resource="#otherMedicalProblems"/>
   </owl:DatatypeProperty>
   <owl:DatatypeProperty rdf:ID="minutes">
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
-    <rdfs:domain rdf:resource="#Movement"/>
     <rdfs:subPropertyOf rdf:resource="#movementMeasurements"/>
+    <rdfs:domain rdf:resource="#Movement"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
   </owl:DatatypeProperty>
   <owl:DatatypeProperty rdf:ID="distance">
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
-    <rdfs:domain rdf:resource="#Movement"/>
     <rdfs:subPropertyOf rdf:resource="#movementMeasurements"/>
+    <rdfs:domain rdf:resource="#Movement"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
   </owl:DatatypeProperty>
   <owl:DatatypeProperty rdf:about="#triggeringFactorType">
     <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
@@ -540,19 +539,19 @@
     </rdfs:subPropertyOf>
   </owl:DatatypeProperty>
   <owl:DatatypeProperty rdf:ID="deviceID">
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-    <rdfs:domain rdf:resource="#Device"/>
     <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+    <rdfs:domain rdf:resource="#Device"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
   </owl:DatatypeProperty>
   <owl:DatatypeProperty rdf:ID="duration">
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
-    <rdfs:domain rdf:resource="#Sleep"/>
     <rdfs:subPropertyOf rdf:resource="#sleepMeasurements"/>
+    <rdfs:domain rdf:resource="#Sleep"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
   </owl:DatatypeProperty>
   <owl:DatatypeProperty rdf:ID="elevation">
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
-    <rdfs:domain rdf:resource="#Movement"/>
     <rdfs:subPropertyOf rdf:resource="#movementMeasurements"/>
+    <rdfs:domain rdf:resource="#Movement"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
   </owl:DatatypeProperty>
   <owl:DatatypeProperty rdf:ID="restlessMinutes">
     <rdfs:subPropertyOf rdf:resource="#sleepMeasurements"/>
@@ -564,6 +563,8 @@
     <rdfs:subPropertyOf rdf:resource="#mciDiagnosis"/>
   </owl:DatatypeProperty>
   <owl:DatatypeProperty rdf:about="http://www.w3.org/2002/07/owl#hasDesc">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
     <rdfs:domain>
       <owl:Class>
         <owl:unionOf rdf:parseType="Collection">
@@ -572,31 +573,29 @@
         </owl:unionOf>
       </owl:Class>
     </rdfs:domain>
-    <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
   </owl:DatatypeProperty>
   <owl:DatatypeProperty rdf:about="#heartRateMeasurements">
-    <rdfs:domain rdf:resource="#HeartRate"/>
     <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+    <rdfs:domain rdf:resource="#HeartRate"/>
   </owl:DatatypeProperty>
   <owl:DatatypeProperty rdf:ID="anxiety">
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
-    <rdfs:subPropertyOf rdf:resource="#otherMedicalProblems"/>
     <rdfs:subPropertyOf>
       <owl:DatatypeProperty rdf:about="#firstSymptomType"/>
     </rdfs:subPropertyOf>
+    <rdfs:subPropertyOf rdf:resource="#otherMedicalProblems"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
   </owl:DatatypeProperty>
   <owl:DatatypeProperty rdf:ID="restingHeartRate">
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
-    <rdfs:domain rdf:resource="#HeartRate"/>
     <rdfs:subPropertyOf rdf:resource="#heartRateMeasurements"/>
+    <rdfs:domain rdf:resource="#HeartRate"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
   </owl:DatatypeProperty>
   <owl:DatatypeProperty rdf:ID="diabetesMelitus">
     <rdfs:subPropertyOf rdf:resource="#otherMedicalProblems"/>
   </owl:DatatypeProperty>
   <owl:DatatypeProperty rdf:ID="awakeMinutes">
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
     <rdfs:subPropertyOf rdf:resource="#sleepMeasurements"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
   </owl:DatatypeProperty>
   <owl:DatatypeProperty rdf:ID="lifeThreat">
     <rdfs:subPropertyOf rdf:resource="#triggeringFactorType"/>
@@ -622,9 +621,9 @@
     <rdfs:subPropertyOf rdf:resource="#triggeringFactorType"/>
   </owl:DatatypeProperty>
   <owl:DatatypeProperty rdf:ID="age">
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
-    <rdfs:domain rdf:resource="#Age"/>
     <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+    <rdfs:domain rdf:resource="#Age"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
   </owl:DatatypeProperty>
   <owl:DatatypeProperty rdf:ID="traumaticBrainInjury">
     <rdfs:subPropertyOf rdf:resource="#otherMedicalProblems"/>
@@ -633,9 +632,9 @@
     <rdfs:subPropertyOf rdf:resource="#mciDiagnosis"/>
   </owl:DatatypeProperty>
   <owl:DatatypeProperty rdf:ID="calories">
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
-    <rdfs:domain rdf:resource="#Movement"/>
     <rdfs:subPropertyOf rdf:resource="#movementMeasurements"/>
+    <rdfs:domain rdf:resource="#Movement"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
   </owl:DatatypeProperty>
   <owl:DatatypeProperty rdf:ID="remCount">
     <rdfs:subPropertyOf rdf:resource="#sleepMeasurements"/>
@@ -650,9 +649,9 @@
     <rdfs:subPropertyOf rdf:resource="#sleepMeasurements"/>
   </owl:DatatypeProperty>
   <owl:DatatypeProperty rdf:ID="eventEndTime">
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTimeStamp"/>
-    <rdfs:domain rdf:resource="#Event"/>
     <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+    <rdfs:domain rdf:resource="#Event"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTimeStamp"/>
   </owl:DatatypeProperty>
   <owl:DatatypeProperty rdf:ID="minutesToFallAsleep">
     <rdfs:subPropertyOf rdf:resource="#sleepMeasurements"/>
@@ -661,33 +660,49 @@
     <rdfs:subPropertyOf rdf:resource="#sleepMeasurements"/>
   </owl:DatatypeProperty>
   <owl:DatatypeProperty rdf:about="#firstSymptomType">
-    <rdfs:domain rdf:resource="#FirstSymptom"/>
     <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+    <rdfs:domain rdf:resource="#FirstSymptom"/>
   </owl:DatatypeProperty>
   <owl:DatatypeProperty rdf:ID="steps">
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
-    <rdfs:domain rdf:resource="#Movement"/>
     <rdfs:subPropertyOf rdf:resource="#movementMeasurements"/>
+    <rdfs:domain rdf:resource="#Movement"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
   </owl:DatatypeProperty>
   <owl:DatatypeProperty rdf:ID="efficiency">
     <rdfs:subPropertyOf rdf:resource="#sleepMeasurements"/>
   </owl:DatatypeProperty>
   <owl:DatatypeProperty rdf:ID="floors">
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
-    <rdfs:domain rdf:resource="#Movement"/>
     <rdfs:subPropertyOf rdf:resource="#movementMeasurements"/>
+    <rdfs:domain rdf:resource="#Movement"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
   </owl:DatatypeProperty>
   <owl:DatatypeProperty rdf:about="http://www.w3.org/2002/07/owl#outOfRange">
-    <rdfs:subPropertyOf rdf:resource="#heartRateMeasurements"/>
-    <rdfs:domain rdf:resource="#HeartRate"/>
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+    <rdfs:domain rdf:resource="#HeartRate"/>
+    <rdfs:subPropertyOf rdf:resource="#heartRateMeasurements"/>
   </owl:DatatypeProperty>
+  <owl:AllDisjointClasses>
+    <owl:members rdf:parseType="Collection">
+      <owl:Class rdf:about="#BAI"/>
+      <owl:Class rdf:about="#BDI"/>
+      <owl:Class rdf:about="#FRSSD"/>
+      <owl:Class rdf:about="#FUCAS"/>
+      <owl:Class rdf:about="#GDS"/>
+      <owl:Class rdf:about="#HamiltonDepressionScale"/>
+      <owl:Class rdf:about="#MMSE"/>
+      <owl:Class rdf:about="#MoCa"/>
+      <owl:Class rdf:about="#NPI"/>
+      <owl:Class rdf:about="#PSS"/>
+      <owl:Class rdf:about="#RAVLT"/>
+      <owl:Class rdf:about="#ROCFT"/>
+      <owl:Class rdf:about="#TEA"/>
+    </owl:members>
+  </owl:AllDisjointClasses>
   <Person rdf:ID="Person_K7">
     <owl:hasProblem>problem3</owl:hasProblem>
     <owl:hasProblem>problem1</owl:hasProblem>
     <duration rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
     >100</duration>
-    <owl:hasSleepProblem>"insomnia"</owl:hasSleepProblem>
     <rdfs:label>Paulou</rdfs:label>
     <cardio rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
     >110</cardio>
@@ -698,17 +713,16 @@
     >39</steps>
   </Person>
   <Person rdf:ID="Person_K9">
-    <duration rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
-    >900</duration>
-    <age rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
-    >89</age>
+    <rdfs:label>Tampouris</rdfs:label>
+    <owl:hasProblem>problem2</owl:hasProblem>
+    <owl:hasProblem>problem1</owl:hasProblem>
+    <owl:hasProblem>problem3</owl:hasProblem>
     <steps rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
     >150</steps>
-    <owl:hasProblem>problem3</owl:hasProblem>
-    <owl:hasProblem>problem1</owl:hasProblem>
-    <owl:hasProblem>problem2</owl:hasProblem>
-    <owl:hasSleepProblem>"insomnia"</owl:hasSleepProblem>
-    <rdfs:label>Tampouris</rdfs:label>
+    <age rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+    >89</age>
+    <duration rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+    >900</duration>
   </Person>
   <Person rdf:ID="Person_K4">
     <asleepMinutes rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
@@ -744,9 +758,12 @@
   </Person>
   <owl:AllDisjointClasses>
     <owl:members rdf:parseType="Collection">
-      <owl:Class rdf:about="#Alert"/>
-      <owl:Class rdf:about="#Message"/>
-      <owl:Class rdf:about="#Warning"/>
+      <owl:Class rdf:about="#Calories"/>
+      <owl:Class rdf:about="#Device"/>
+      <owl:Class rdf:about="#Event"/>
+      <owl:Class rdf:about="#Output"/>
+      <owl:Class rdf:about="#Person"/>
+      <owl:Class rdf:about="#Steps"/>
     </owl:members>
   </owl:AllDisjointClasses>
   <Person rdf:ID="Person_K6">
@@ -766,17 +783,17 @@
     <awakeMinutes>0</awakeMinutes>
   </Person>
   <Person rdf:ID="Person_K5">
-    <steps rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
-    >34</steps>
-    <cardio rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
-    >50</cardio>
-    <duration rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
-    >200</duration>
-    <asleepMinutes rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
-    >700</asleepMinutes>
+    <rdfs:label>Mihailidis</rdfs:label>
     <age rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
     >75</age>
-    <rdfs:label>Mihailidis</rdfs:label>
+    <asleepMinutes rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+    >700</asleepMinutes>
+    <duration rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+    >200</duration>
+    <cardio rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+    >50</cardio>
+    <steps rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+    >34</steps>
   </Person>
   <HeartRate rdf:ID="HeartRate_3">
     <owl:heartRateRefersToPerson>
@@ -793,41 +810,22 @@
         <awakeMinutes>0</awakeMinutes>
         <duration rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
         >300</duration>
-        <owl:hasSleepProblem>"insomnia"</owl:hasSleepProblem>
         <owl:hasProblem>problem1</owl:hasProblem>
         <owl:hasProblem>problem2</owl:hasProblem>
         <anxiety>0</anxiety>
       </Person>
     </owl:heartRateRefersToPerson>
   </HeartRate>
-  <owl:AllDisjointClasses>
-    <owl:members rdf:parseType="Collection">
-      <owl:Class rdf:about="#BAI"/>
-      <owl:Class rdf:about="#BDI"/>
-      <owl:Class rdf:about="#FRSSD"/>
-      <owl:Class rdf:about="#FUCAS"/>
-      <owl:Class rdf:about="#GDS"/>
-      <owl:Class rdf:about="#HamiltonDepressionScale"/>
-      <owl:Class rdf:about="#MMSE"/>
-      <owl:Class rdf:about="#MoCa"/>
-      <owl:Class rdf:about="#NPI"/>
-      <owl:Class rdf:about="#PSS"/>
-      <owl:Class rdf:about="#RAVLT"/>
-      <owl:Class rdf:about="#ROCFT"/>
-      <owl:Class rdf:about="#TEA"/>
-    </owl:members>
-  </owl:AllDisjointClasses>
   <Person rdf:ID="Person_K10">
-    <age rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
-    >89</age>
     <owl:hasProblem>problem3</owl:hasProblem>
+    <age rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+    >200</age>
     <owl:hasProblem>problem2</owl:hasProblem>
     <awakeMinutes>0</awakeMinutes>
     <owl:hasProblem>problem1</owl:hasProblem>
     <anxiety>0</anxiety>
     <cardio rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
     >70</cardio>
-    <owl:hasSleepProblem>"insomnia"</owl:hasSleepProblem>
     <rdfs:label>Andreadis</rdfs:label>
     <duration rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
     >400</duration>
@@ -838,14 +836,18 @@
   <Device rdf:ID="Device_1">
     <hasEvent>
       <Event rdf:ID="Event_1">
-        <eventEndTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTimeStamp"
-        >2020-06-04T13:24:07.245+03:00</eventEndTime>
         <eventStartTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTimeStamp"
         >2020-04-12T13:20:00-05:00</eventStartTime>
+        <eventEndTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTimeStamp"
+        >2020-06-04T13:24:07.245+03:00</eventEndTime>
       </Event>
     </hasEvent>
   </Device>
   <HeartRate rdf:ID="HeartRate_1">
+    <heartRate rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+    >100</heartRate>
+    <owl:outOfRange rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+    >1</owl:outOfRange>
     <refersToPerson>
       <Person rdf:ID="Person_K1">
         <anxiety rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
@@ -865,41 +867,33 @@
         </owl:receivesWarning>
         <owl:hasProblem>test1</owl:hasProblem>
         <owl:hasProblem>test2</owl:hasProblem>
+        <rdfs:label>Petrou</rdfs:label>
         <awakeCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
         >200</awakeCount>
-        <rdfs:label>Petrou</rdfs:label>
         <awakeMinutes rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
         >100</awakeMinutes>
-        <owl:hasSleepProblem rdf:resource="#insomnia"/>
         <steps rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
         >30</steps>
       </Person>
     </refersToPerson>
-    <owl:outOfRange rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
-    >1</owl:outOfRange>
-    <heartRate rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
-    >100</heartRate>
   </HeartRate>
   <HeartRate rdf:ID="HeartRate_2">
-    <refersToPerson rdf:resource="#Person_K2"/>
-    <owl:outOfRange rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
-    >1</owl:outOfRange>
     <heartRate rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
     >12</heartRate>
+    <owl:outOfRange rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+    >1</owl:outOfRange>
+    <refersToPerson rdf:resource="#Person_K2"/>
   </HeartRate>
   <Movement rdf:ID="Movement_1">
+    <movementsRefersToPerson rdf:resource="#Person_K1"/>
     <minutes rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
     >10</minutes>
-    <movementsRefersToPerson rdf:resource="#Person_K1"/>
   </Movement>
   <owl:AllDisjointClasses>
     <owl:members rdf:parseType="Collection">
-      <owl:Class rdf:about="#Calories"/>
-      <owl:Class rdf:about="#Device"/>
-      <owl:Class rdf:about="#Event"/>
-      <owl:Class rdf:about="#Output"/>
-      <owl:Class rdf:about="#Person"/>
-      <owl:Class rdf:about="#Steps"/>
+      <owl:Class rdf:about="#Alert"/>
+      <owl:Class rdf:about="#Message"/>
+      <owl:Class rdf:about="#Warning"/>
     </owl:members>
   </owl:AllDisjointClasses>
 </rdf:RDF>
