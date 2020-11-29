@@ -90,6 +90,7 @@ public class AntonisDemo {
             // add the RDF data from the inputstream directly to our database
             getRepositoryConnection().add(input2, "", RDFFormat.RDFXML);
         }
+        
         String queryString2 = "PREFIX : <http://www.semanticweb.org/kass/ontologies/2020/2/yposthrizo_ontology#> \n";
         queryString2 += "INSERT { \n";
         queryString2 += "?p :age ";
